@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd 
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<bean id="db_configuration"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName"
+			value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="searchSystemEnvironment" value="true" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:config_dev.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource"
+		destroy-method="close">
+		<property name="URL" value="${db_url}" />
+		<property name="user" value="${db_user}" />
+		<property name="password" value="${db_pass}" />		
+		<property name="connectionCachingEnabled" value="true"/>
+		<property name="connectionCacheProperties">
+			<value>
+				MinLimit:0
+				MaxLimit:500
+				InitialLimit:5
+				ConnectionWaitTimeout:120
+				InactivityTimeout:180
+				PropertyCheckInterval:90
+				ValidateConnection:true
+			</value>
+		</property>
+	</bean>
+
+	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/h2hDatasource" />
+	</bean>-->
+	 
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	    SMTP settings
+	    <property name="host" value="${email.host}" />
+	    <property name="port" value="${email.port}" />
+	    <property name="username" value="${email.username}" />
+	    <property name="password" value="${email.password}" />
+	 
+	    <property name="javaMailProperties">
+	        additional properties specific to JavaMail
+	        <props>
+	            <prop key="mail.transport.protocol">smtp</prop>
+	            <prop key="mail.smtp.auth">true</prop>
+	            <prop key="mail.smtp.starttls.enable">true</prop>
+	        </props>
+	    </property>
+	</bean>  -->
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+		    autowire="byName">
+		   <property name="basenames">
+		     <list>
+		       <value>classpath:messages/messages</value>
+		     </list>
+		    </property>
+		    <property name="cacheSeconds" value="1"/>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>entity.frwk</value>
+				<value>entity</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql:true}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql:false}</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- <cache:annotation-driven />
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+	    <property name="cacheManager" ref="ehcache" />
+	</bean>
+    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache.xml" />
+    </bean> -->
+	
+	<!-- <bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" /> -->
+	
+	
+  <mvc:interceptors>
+    <mvc:interceptor>
+      <mvc:mapping path="/**" />
+      <mvc:exclude-mapping path="/assets/**"/>
+      <mvc:exclude-mapping path="/css/**"/>
+      <mvc:exclude-mapping path="/js/**"/>
+      <mvc:exclude-mapping path="/images/**"/>
+      <mvc:exclude-mapping path="/plugin/**"/>
+      <bean  id="hibernateSessionInterceptor" class="frwk.filter.HibernateSessionInterceptor">
+      	<property name="sessionFactory" ref="sessionFactory"></property>
+      </bean>
+    </mvc:interceptor>
+    
+  </mvc:interceptors>
+	
+	<context:component-scan base-package="frwk.dao.hibernate.sys,frwk.controller,vn.com.cmc.schedule,intergration.cic,vn.com.cmc.service,vn.com.cmc.ws.config,config, intergration.cic,intergration.config,cic.ws.client,cic.h2h.dao.hibernate,frwk.dao.hibernate,frwk.utils" />
+
+	
+</beans>

@@ -1,0 +1,27 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.endpoint.ws.intergration.org.vn/cicqaFile"
+	targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqaFile"
+	elementFormDefault="qualified"> 
+	<xs:complexType name="DongKQ">
+		<xs:sequence>
+			<xs:element name="MaSoPhieu" type="xs:string" />
+			<xs:element name="LoaiSP" type="xs:string" />
+			<xs:element name="TrangThai" type="xs:string" />
+			<xs:element name="NgayHoi" type="xs:string" />
+			<xs:element name="NgayTraLoi" type="xs:string" />
+			<xs:element name="NgayLayVe" type="xs:string" />
+			<xs:element name="TenKH" type="xs:string" />
+			<xs:element name="MaKH" type="xs:string" />
+			<xs:element name="MaCIC" type="xs:string" />
+			<xs:element name="DiaChi" type="xs:string" />
+			<xs:element name="MSThue" type="xs:string" />
+			<xs:element name="DKKD" type="xs:string" />
+			<xs:element name="SoCMT" type="xs:string" />
+			<xs:element name="LoaiGTK" type="xs:string" />
+			<xs:element name="SoGTK" type="xs:string" />
+			<xs:element name="GhiChu" type="xs:string" />
+			<xs:element name="MaSP" type="xs:string" />
+			<xs:element name="TenTep" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

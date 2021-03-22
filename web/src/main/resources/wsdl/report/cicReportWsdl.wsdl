@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.endpoint.ws.h2h.cic.org.vn/cicreport" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.endpoint.ws.h2h.cic.org.vn/cicreport" targetNamespace="http://www.endpoint.ws.h2h.cic.org.vn/cicreport">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.h2h.cic.org.vn/cicreport">
+	
+	<xs:element name="TepBaoCao">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTep" type="xs:string"/>
+				<xs:element name="NoiDungTep" type="xs:string"/>
+				<xs:element name="TenTepDinhKem" type="xs:string"/>
+				<xs:element name="NoiDungTepDinhKem" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="TepBaoCaoTinDung">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTepK31" type="xs:string"/>
+				<xs:element name="NoiDungTepK31" type="xs:string"/>
+				<xs:element name="TenTepK32" type="xs:string"/>
+				<xs:element name="NoiDungTepK32" type="xs:string"/>
+				<xs:element name="TenTepDinhKem" type="xs:string"/>
+				<xs:element name="NoiDungTepDinhKem" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="PHTepBaoCao">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TTPhanHoi"> 
+		<xs:sequence>
+			<xs:element name="TrangThai" type="xs:string"/>
+			<xs:element name="DSLoi" type="tns:DSLoi"/>
+			<xs:element name="Ma" type="xs:string"/>
+			<xs:element name="MoTa" type="xs:string"/>
+			<xs:element minOccurs="0" name="GuiLaiTep" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="TepBaoCaoVanTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTep" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHTepBaoCaoVanTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="TepTraLoi" type="tns:TepTraLoi"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TepTraLoi">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="TTChung" type="tns:TTChung"/>
+				<xs:element name="TTLoi" type="tns:TTLoi"/>
+				<xs:element name="DSChiNhanh" type="tns:DSChiNhanh"/>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="TTChung">
+		<xs:sequence>
+			<xs:element name="MaTCTD" type="xs:string"/>
+			<xs:element name="NguoiBaoCao" type="xs:string"/>
+			<xs:element name="NgayBaoCao" type="xs:string"/>
+			<xs:element name="DienThoai" type="xs:string"/>
+			<xs:element name="VonTuCo" type="xs:string"/>
+			<xs:element name="TrangThaiXuLy" type="xs:string"/>
+			<xs:element name="MoTa" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TTLoi">
+		<xs:sequence>
+			<xs:element name="MaChiTieu" type="xs:string"/>
+			<xs:element name="Ma" type="xs:string"/>
+			<xs:element name="MoTa" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DSChiNhanh">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChiNhanh" type="tns:ChiNhanh"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChiNhanh">
+		<xs:sequence>
+			<xs:element name="DongBatDau" type="xs:string"/>
+			<xs:element name="MaChiNhanh" type="xs:string"/>
+			<xs:element name="TenChiNhanh" type="xs:string"/>
+			<xs:element name="DSLoi" type="tns:DSLoi"/>
+			<xs:element name="DSKhachHang" type="tns:DSKhachHang"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DSKhachHang">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Dong" type="tns:Dong"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="KhachHang">
+		<xs:sequence>
+			<xs:element name="MaKH" type="xs:string"/>
+			<xs:element name="TenKH" type="xs:string"/>
+			<xs:element name="DongBatDau" type="xs:string"/>
+			<xs:element name="DSLoi" type="tns:DSLoi"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- nvhuy clone KhachHang -> Dong -->
+	<xs:complexType name="Dong">
+		<xs:sequence>
+			<xs:element name="MaKH" type="xs:string"/>
+			<xs:element name="TenKH" type="xs:string"/>
+			<xs:element name="DongBatDau" type="xs:string"/>
+			<xs:element name="DSLoi" type="tns:DSLoi"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DSLoi">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Loi" type="tns:Loi"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Loi">
+		<xs:sequence>
+			<xs:element name="MaChiTieu" type="xs:string"/>
+			<xs:element name="Ma" type="xs:string"/>
+			<xs:element name="MoTa" type="xs:string"/>
+			<xs:element name="Loai" type="xs:string"/>
+			<xs:element name="DongBatDau" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- nvhuy.cmc - gui tep phi cau truc -->
+	<xs:element name="TepPhiCauTruc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTep" type="xs:string"/>
+				<xs:element name="NoiDungTep" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHTepPhiCauTruc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DSLoi" type="tns:DSLoi"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end tep phi cau truc -->
+	<!-- nvhuy.cmc - danh sach trang thai tep bao cao -->
+	<xs:element name="DanhSachTepBaoCao">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TuNgay" type="xs:string"/>
+				<xs:element name="DenNgay" type="xs:string"/>
+				<xs:element name="TrangThai" type="xs:string"/>
+				<xs:element name="LoaiTep" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHDanhSachTepBaoCao">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DSLoi" type="tns:DSLoi"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="tns:DongKQ"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="DongKQ">
+		<xs:sequence>
+			<xs:element name="TenTep" type="xs:string"/>
+			<xs:element name="TrangThai" type="xs:string"/>
+			<xs:element name="NgayGui" type="xs:string"/>
+			<xs:element name="LoaiTep" type="xs:string"/>
+			<xs:element name="NgayTao" type="xs:string"/>
+			<xs:element name="NguoiTao" type="xs:string"/>
+			<xs:element name="NgayLayVe" type="xs:string"/>
+			<xs:element name="KichThuoc" type="xs:string"/>
+			<xs:element name="NoiDungTep" type="xs:string"/> 
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end danh sach trang thai tep bao cao -->
+	<!-- start danh sach trang thai tep phi cau truc -->
+	<xs:element name="DanhSachTepTraSoat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TuNgay" type="xs:string"/>
+				<xs:element name="DenNgay" type="xs:string"/>
+				<xs:element name="TrangThai" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHDanhSachTepTraSoat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DSLoi" type="tns:DSLoi"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="tns:DongKQ"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end danh sach trang thai tep phi cau truc -->
+	<!-- start danh sach trang thai tep phi cau truc -->
+	<xs:element name="NhanTepTraSoat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTep" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHNhanTepTraSoat">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DSLoi" type="tns:DSLoi"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="tns:DongKQ"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end danh sach trang thai tep phi cau truc -->
+	<!-- huy bao cao -->
+	<xs:element name="HuyBaoCao">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTep" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHHuyBaoCao">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DSLoi" type="tns:DSLoi"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- start danh sach trang thai tep phi cau truc -->
+	<xs:element name="DanhSachTepPhiCauTruc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TuNgay" type="xs:string"/>
+				<xs:element name="DenNgay" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHDanhSachTepPhiCauTruc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DSLoi" type="tns:DSLoi"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="tns:DongKQ"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end danh sach trang thai tep phi cau truc -->
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="PHDanhSachTepBaoCao">
+    <wsdl:part element="tns:PHDanhSachTepBaoCao" name="PHDanhSachTepBaoCao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHDanhSachTepTraSoat">
+    <wsdl:part element="tns:PHDanhSachTepTraSoat" name="PHDanhSachTepTraSoat">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHHuyBaoCao">
+    <wsdl:part element="tns:PHHuyBaoCao" name="PHHuyBaoCao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DanhSachTepBaoCao">
+    <wsdl:part element="tns:DanhSachTepBaoCao" name="DanhSachTepBaoCao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHDanhSachTepPhiCauTruc">
+    <wsdl:part element="tns:PHDanhSachTepPhiCauTruc" name="PHDanhSachTepPhiCauTruc">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DanhSachTepTraSoat">
+    <wsdl:part element="tns:DanhSachTepTraSoat" name="DanhSachTepTraSoat">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DanhSachTepPhiCauTruc">
+    <wsdl:part element="tns:DanhSachTepPhiCauTruc" name="DanhSachTepPhiCauTruc">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTepBaoCao">
+    <wsdl:part element="tns:PHTepBaoCao" name="PHTepBaoCao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TepBaoCaoTinDung">
+    <wsdl:part element="tns:TepBaoCaoTinDung" name="TepBaoCaoTinDung">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NhanTepTraSoat">
+    <wsdl:part element="tns:NhanTepTraSoat" name="NhanTepTraSoat">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTepBaoCaoVanTin">
+    <wsdl:part element="tns:PHTepBaoCaoVanTin" name="PHTepBaoCaoVanTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTepPhiCauTruc">
+    <wsdl:part element="tns:PHTepPhiCauTruc" name="PHTepPhiCauTruc">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="HuyBaoCao">
+    <wsdl:part element="tns:HuyBaoCao" name="HuyBaoCao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TepBaoCao">
+    <wsdl:part element="tns:TepBaoCao" name="TepBaoCao">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TepPhiCauTruc">
+    <wsdl:part element="tns:TepPhiCauTruc" name="TepPhiCauTruc">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TepBaoCaoVanTin">
+    <wsdl:part element="tns:TepBaoCaoVanTin" name="TepBaoCaoVanTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHNhanTepTraSoat">
+    <wsdl:part element="tns:PHNhanTepTraSoat" name="PHNhanTepTraSoat">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CicReportPort">
+    <wsdl:operation name="DanhSachTepBaoCao">
+      <wsdl:input message="tns:DanhSachTepBaoCao" name="DanhSachTepBaoCao">
+    </wsdl:input>
+      <wsdl:output message="tns:PHDanhSachTepBaoCao" name="PHDanhSachTepBaoCao">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTepTraSoat">
+      <wsdl:input message="tns:DanhSachTepTraSoat" name="DanhSachTepTraSoat">
+    </wsdl:input>
+      <wsdl:output message="tns:PHDanhSachTepTraSoat" name="PHDanhSachTepTraSoat">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HuyBaoCao">
+      <wsdl:input message="tns:HuyBaoCao" name="HuyBaoCao">
+    </wsdl:input>
+      <wsdl:output message="tns:PHHuyBaoCao" name="PHHuyBaoCao">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTepPhiCauTruc">
+      <wsdl:input message="tns:DanhSachTepPhiCauTruc" name="DanhSachTepPhiCauTruc">
+    </wsdl:input>
+      <wsdl:output message="tns:PHDanhSachTepPhiCauTruc" name="PHDanhSachTepPhiCauTruc">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepBaoCao">
+      <wsdl:input message="tns:TepBaoCao" name="TepBaoCao">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTepBaoCao" name="PHTepBaoCao">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepBaoCaoTinDung">
+      <wsdl:input message="tns:TepBaoCaoTinDung" name="TepBaoCaoTinDung">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NhanTepTraSoat">
+      <wsdl:input message="tns:NhanTepTraSoat" name="NhanTepTraSoat">
+    </wsdl:input>
+      <wsdl:output message="tns:PHNhanTepTraSoat" name="PHNhanTepTraSoat">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepBaoCaoVanTin">
+      <wsdl:input message="tns:TepBaoCaoVanTin" name="TepBaoCaoVanTin">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTepBaoCaoVanTin" name="PHTepBaoCaoVanTin">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepPhiCauTruc">
+      <wsdl:input message="tns:TepPhiCauTruc" name="TepPhiCauTruc">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTepPhiCauTruc" name="PHTepPhiCauTruc">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CicReportPortSoap11" type="tns:CicReportPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DanhSachTepBaoCao">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DanhSachTepBaoCao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHDanhSachTepBaoCao">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTepTraSoat">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DanhSachTepTraSoat">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHDanhSachTepTraSoat">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HuyBaoCao">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="HuyBaoCao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHHuyBaoCao">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DanhSachTepPhiCauTruc">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DanhSachTepPhiCauTruc">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHDanhSachTepPhiCauTruc">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepBaoCao">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TepBaoCao">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTepBaoCao">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepBaoCaoTinDung">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TepBaoCaoTinDung">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NhanTepTraSoat">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="NhanTepTraSoat">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHNhanTepTraSoat">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepBaoCaoVanTin">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TepBaoCaoVanTin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTepBaoCaoVanTin">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepPhiCauTruc">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TepPhiCauTruc">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTepPhiCauTruc">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CicReportPortService">
+    <wsdl:port binding="tns:CicReportPortSoap11" name="CicReportPortSoap11">
+      <soap:address location="http://localhost:8081/ServiceGatewayApp/service/report"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

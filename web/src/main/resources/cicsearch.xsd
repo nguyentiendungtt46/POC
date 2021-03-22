@@ -1,0 +1,68 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqr" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqr"
+	elementFormDefault="qualified">
+	
+	<!-- TimKiemKH -->
+	<xs:element name="TimKiemKH">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NguoiYeuCau" type="xs:string" />
+				<xs:element name="TenKH" type="xs:string" />
+				<xs:element name="DiaChi" type="xs:string" />
+				<xs:element name="MaKH" type="xs:string" />
+				<xs:element name="MaCIC" type="xs:string" />
+				<xs:element name="LoaiKH" type="xs:string" />
+				<xs:element name="MSThue" type="xs:string" />
+				<xs:element name="DKKD" type="xs:string" />
+				<xs:element name="SoCMT" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="PHTimKiemKH">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TimKiemKHKQ" type="tns:TimKiemKHKQ" />
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- TimKiemKH -->
+	
+	<xs:complexType name="TimKiemKHKQ">
+		<xs:sequence>
+			<xs:element name="TenKH" type="xs:string" />
+			<xs:element name="DiaChi" type="xs:string" />
+			<xs:element name="MaCIC" type="xs:string" />
+			<xs:element name="MaKH" type="xs:string" />
+			<xs:element name="MaTCTD" type="xs:string" />
+			<xs:element name="LoaiKH" type="xs:string" />
+			<xs:element name="MSThue" type="xs:string" />
+			<xs:element name="SoCMT" type="xs:string" />
+			<xs:element name="DKKD" type="xs:string" />
+			<xs:element name="Data" type="xs:string" />
+			<xs:element name="DSLoi" type="tns:DSLoi" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TTPhanHoi">
+		<xs:sequence>
+			<xs:element name="TrangThai" type="xs:string" />
+			<xs:element name="Ma" type="xs:string" />
+			<xs:element name="MoTa" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DSLoi">
+		<xs:sequence>
+			<xs:element name="Loi" type="tns:Loi" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Loi">
+		<xs:sequence>
+			<xs:element name="MaLoi" type="xs:string" />
+			<xs:element name="MoTaLoi" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

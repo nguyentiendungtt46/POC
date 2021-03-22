@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.endpoint.ws.h2h.cic.org.vn/cicuserinfo" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.endpoint.ws.h2h.cic.org.vn/cicuserinfo" targetNamespace="http://www.endpoint.ws.h2h.cic.org.vn/cicuserinfo">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.h2h.cic.org.vn/cicuserinfo">
+<!-- Doi mat khau 
+-->
+            <xs:element name="DoiMatKhau">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TenDangNhap" type="xs:string"/>
+                        <xs:element name="MatKhauCu" type="xs:string"/>
+                        <xs:element name="MatKhauMoi" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PHDoiMatKhau">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Ma" type="xs:string"/>
+                        <xs:element name="MoTa" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+<!--END- Doi mat khau 
+-->
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="DoiMatKhau">
+        <wsdl:part element="tns:DoiMatKhau" name="DoiMatKhau"/>
+    </wsdl:message>
+    <wsdl:message name="PHDoiMatKhau">
+        <wsdl:part element="tns:PHDoiMatKhau" name="PHDoiMatKhau"/>
+    </wsdl:message>
+    <wsdl:portType name="CicUserInfoPort">
+        <wsdl:operation name="DoiMatKhau">
+            <wsdl:input message="tns:DoiMatKhau" name="DoiMatKhau"/>
+            <wsdl:output message="tns:PHDoiMatKhau" name="PHDoiMatKhau"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CicUserInfoPortSoap11" type="tns:CicUserInfoPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="DoiMatKhau">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="DoiMatKhau">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="PHDoiMatKhau">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CicUserInfoPortService">
+        <wsdl:port binding="tns:CicUserInfoPortSoap11" name="CicUserInfoPortSoap11">
+            <soap:address location="http://115.146.122.216:8080/ServiceGatewayApp/service/userinfo"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

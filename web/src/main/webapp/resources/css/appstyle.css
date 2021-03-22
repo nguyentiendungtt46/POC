@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+.bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-label{
+    padding: .5rem .5rem !important;
+}
+
+table thead tr{
+	background-color: #17a2b8;
+    color: white;
+}
+
+table {
+	font-size: small;	
+}

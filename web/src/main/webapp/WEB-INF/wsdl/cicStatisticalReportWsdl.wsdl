@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.endpoint.ws.intergration.org.vn/cicstatisticalreport" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicstatisticalreport" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicstatisticalreport">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicstatisticalreport">
+	
+	<!-- BaoCaoThongKe -->
+	<xs:element name="BaoCaoThongKe">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NguoiYeuCau" type="xs:string"/>
+				<xs:element name="MaBaoCao" type="xs:string"/>
+				<xs:element name="TuNgay" type="xs:string"/>
+				<xs:element name="DenNgay" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="PHBaoCaoThongKe">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+				<xs:element name="DongKQ" type="tns:DongKQ"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- BaoCaoThongKe -->
+	
+	<xs:complexType name="DongKQ">
+		<xs:sequence>
+			<xs:element name="MaBaoCao" type="xs:string"/>
+			<xs:element name="TuNgay" type="xs:string"/>
+			<xs:element name="DenNgay" type="xs:string"/>
+			<xs:element name="NoiDung" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TTPhanHoi">
+		<xs:sequence>
+			<xs:element name="TrangThai" type="xs:string"/>
+			<xs:element name="Ma" type="xs:string"/>
+			<xs:element name="MoTa" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="PHBaoCaoThongKe">
+    <wsdl:part element="tns:PHBaoCaoThongKe" name="PHBaoCaoThongKe">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="BaoCaoThongKe">
+    <wsdl:part element="tns:BaoCaoThongKe" name="BaoCaoThongKe">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CicStatisticalReportPort">
+    <wsdl:operation name="BaoCaoThongKe">
+      <wsdl:input message="tns:BaoCaoThongKe" name="BaoCaoThongKe">
+    </wsdl:input>
+      <wsdl:output message="tns:PHBaoCaoThongKe" name="PHBaoCaoThongKe">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CicStatisticalReportPortSoap11" type="tns:CicStatisticalReportPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="BaoCaoThongKe">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="BaoCaoThongKe">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHBaoCaoThongKe">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CicStatisticalReportPortService">
+    <wsdl:port binding="tns:CicStatisticalReportPortSoap11" name="CicStatisticalReportPortSoap11">
+      <soap:address location="http://localhost:8081/web/service/statisticalReport"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

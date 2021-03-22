@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://www.endpoint.ws.intergration.org.vn/cicqa" xmlns:sch1="http://www.endpoint.ws.intergration.org.vn/cicqaProd" xmlns:sch2="http://www.endpoint.ws.intergration.org.vn/cicqaFile" xmlns:sch3="http://www.endpoint.ws.intergration.org.vn/cicqaFix" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqa" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqa">
+  <wsdl:types>
+    <xs:schema xmlns:one="http://www.endpoint.ws.intergration.org.vn/cicqaProd" xmlns:thr="http://www.endpoint.ws.intergration.org.vn/cicqaFix" xmlns:two="http://www.endpoint.ws.intergration.org.vn/cicqaFile" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqa"><xs:import namespace="http://www.endpoint.ws.intergration.org.vn/cicqaProd"/><xs:import namespace="http://www.endpoint.ws.intergration.org.vn/cicqaFile"/><xs:import namespace="http://www.endpoint.ws.intergration.org.vn/cicqaFix"/><xs:element name="TrangThaiTepHT"><xs:complexType><xs:sequence><xs:element name="NgayHT" type="xs:string"/><xs:element name="TrangThai" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHTrangThaiTepHT"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DSLoi" type="one:DSLoi"/><xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="two:DongKQ"/></xs:sequence></xs:complexType></xs:element><xs:element name="TrangThaiTepDinhKy"><xs:complexType><xs:sequence><xs:element name="TTChung" type="thr:TTChung"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHTrangThaiTepDinhKy"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DSLoi" type="one:DSLoi"/><xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="thr:DongKQ"/></xs:sequence></xs:complexType></xs:element><xs:element name="HoiTin"><xs:complexType><xs:sequence><xs:element name="KhachHang" type="one:KhachHang"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHHoiTin"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DaTa" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="VanTinDSPhieu"><xs:complexType><xs:sequence><xs:element name="DSMaSoPhieu" type="one:DSMaSoPhieu"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHVanTinDSPhieu"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DSKhachHangKQ" type="one:DSKhachHangKQ"/></xs:sequence></xs:complexType></xs:element><xs:element name="VanTin"><xs:complexType><xs:sequence><xs:element name="TuyChon" type="xs:string"/><xs:element name="NgayHT" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHVanTin"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DSKhachHangKQ" type="one:DSKhachHangKQ"/></xs:sequence></xs:complexType></xs:element><xs:element name="TepHoiTin"><xs:complexType><xs:sequence><xs:element name="MaSP" type="xs:string"/><xs:element name="TenTep" type="xs:string"/><xs:element name="NoiDungTep" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHTepHoiTin"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/></xs:sequence></xs:complexType></xs:element><xs:element name="TepVanTin"><xs:complexType><xs:sequence><xs:element name="TenTep" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHTepVanTin"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="TepTraLoi" type="one:TepTraLoi"/></xs:sequence></xs:complexType></xs:element><xs:element name="TraKetQuaDinhKy"><xs:complexType><xs:sequence><xs:element name="TenTepTraLoi" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHTraKetQuaDinhKy"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DSLoi" type="one:DSLoi"/><xs:element name="TepTraLoi" type="one:TepTraLoi"/></xs:sequence></xs:complexType></xs:element><xs:element name="TrangThaiPhieuHT"><xs:complexType><xs:sequence><xs:element name="NgayHT" type="xs:string"/><xs:element name="TrangThai" type="xs:string"/><xs:element name="DSMaSoPhieu" type="one:DSMaSoPhieu"/></xs:sequence></xs:complexType></xs:element><xs:element name="PHTrangThaiPhieuHT"><xs:complexType><xs:sequence><xs:element name="TTPhanHoi" type="one:TTPhanHoi"/><xs:element name="DSLoi" type="one:DSLoi"/><xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="two:DongKQ"/></xs:sequence></xs:complexType></xs:element></xs:schema>
+    <xs:schema xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqaProd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqaProd"><xs:complexType name="TTChung"><xs:sequence><xs:element name="LoaiSP" type="xs:string"/><xs:element name="SLPhieu" type="xs:integer"/></xs:sequence></xs:complexType><xs:complexType name="DSKhachHang"><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="Dong" type="tns:Dong"/></xs:sequence></xs:complexType><xs:complexType name="Dong"><xs:sequence><xs:element name="MaSoPhieu" type="xs:string"/><xs:element name="TenKH" type="xs:string"/><xs:element name="MaKH" type="xs:string"/><xs:element name="MaCIC" type="xs:string"/><xs:element name="DiaChi" type="xs:string"/><xs:element name="MSThue" type="xs:string"/><xs:element name="SoCMT" type="xs:string"/><xs:element name="DKKD" type="xs:string"/><xs:element name="NgonNgu" type="xs:string"/><xs:element name="DienThoai" type="xs:string"/><xs:element name="TenGiamDoc" type="xs:string"/><xs:element name="NamTaiChinh" type="xs:string"/><xs:element name="GhiChu" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="KhachHang"><xs:sequence><xs:element name="NguoiYeuCau" type="xs:string"/><xs:element name="MaSP" type="xs:string"/><xs:element name="TenKH" type="xs:string"/><xs:element name="MaKH" type="xs:string"/><xs:element name="MaCIC" type="xs:string"/><xs:element name="DiaChi" type="xs:string"/><xs:element name="MSThue" type="xs:string"/><xs:element name="SoCMT" type="xs:string"/><xs:element name="DKKD" type="xs:string"/><xs:element name="NgonNgu" type="xs:string"/><xs:element name="DienThoai" type="xs:string"/><xs:element name="TenGiamDoc" type="xs:string"/><xs:element name="NamTaiChinh" type="xs:string"/><xs:element name="GhiChu" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="TTPhanHoi"><xs:sequence><xs:element name="TrangThai" type="xs:string"/><xs:element name="Ma" type="xs:string"/><xs:element name="MoTa" type="xs:string"/><xs:element name="SLThanhCong" type="xs:integer"/><xs:element name="SLThatBai" type="xs:integer"/><xs:element name="SLHoi" type="xs:integer"/><xs:element name="SLTraLoi" type="xs:integer"/><xs:element name="SLLoi" type="xs:integer"/><xs:element name="LoaiSP" type="xs:string"/><xs:element name="CheckSum" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="DSKhachHangKQ"><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="DongKQ" type="tns:DongKQ"/></xs:sequence></xs:complexType><xs:complexType name="DSLoi"><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="Loi" type="tns:Loi"/></xs:sequence></xs:complexType><xs:complexType name="Loi"><xs:sequence><xs:element name="MaLoi" type="xs:string"/><xs:element name="MoTaLoi" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="DSMaSoPhieu"><xs:sequence maxOccurs="unbounded" minOccurs="0"><xs:element name="MaSoPhieu" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="TepTraLoi"><xs:sequence><xs:element name="MaSP" type="xs:string"/><xs:element name="TenTepTraLoi" type="xs:string"/><xs:element name="NoiDungTepTraLoi" type="xs:string"/><xs:element name="TenTepLoi" type="xs:string"/><xs:element name="NoiDungTepLoi" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="DongKQ"><xs:sequence><xs:element name="MaSoPhieu" type="xs:string"/><xs:element name="TenKH" type="xs:string"/><xs:element name="MaKH" type="xs:string"/><xs:element name="MaCIC" type="xs:string"/><xs:element name="DiaChi" type="xs:string"/><xs:element name="MSThue" type="xs:string"/><xs:element name="SoCMT" type="xs:string"/><xs:element name="DKKD" type="xs:string"/><xs:element name="NgonNgu" type="xs:string"/><xs:element name="DienThoai" type="xs:string"/><xs:element name="TenGiamDoc" type="xs:string"/><xs:element name="NamTaiChinh" type="xs:string"/><xs:element name="GhiChu" type="xs:string"/><xs:element name="Data" type="xs:string"/><xs:element name="DSLoi" type="tns:DSLoi"/><xs:element name="LoaiSP" type="xs:string"/><xs:element name="NgayHoi" type="xs:string"/><xs:element name="NgayNhanGanNhat" type="xs:string"/><xs:element name="LoaiKH" type="xs:string"/><xs:element name="TrangThai" type="xs:string"/><xs:element name="NgayLayVe" type="xs:string"/></xs:sequence></xs:complexType></xs:schema>
+    <xs:schema xmlns="http://www.endpoint.ws.intergration.org.vn/cicqaFile" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqaFile"><xs:complexType name="DongKQ"><xs:sequence><xs:element name="MaSoPhieu" type="xs:string"/><xs:element name="LoaiSP" type="xs:string"/><xs:element name="TrangThai" type="xs:string"/><xs:element name="NgayHoi" type="xs:string"/><xs:element name="NgayTraLoi" type="xs:string"/><xs:element name="NgayLayVe" type="xs:string"/><xs:element name="TenKH" type="xs:string"/><xs:element name="MaKH" type="xs:string"/><xs:element name="MaCIC" type="xs:string"/><xs:element name="DiaChi" type="xs:string"/><xs:element name="MSThue" type="xs:string"/><xs:element name="DKKD" type="xs:string"/><xs:element name="SoCMT" type="xs:string"/><xs:element name="LoaiGTK" type="xs:string"/><xs:element name="SoGTK" type="xs:string"/><xs:element name="GhiChu" type="xs:string"/><xs:element name="MaSP" type="xs:string"/><xs:element name="TenTep" type="xs:string"/></xs:sequence></xs:complexType></xs:schema>
+    <xs:schema xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqaFix" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqaFix"><xs:complexType name="DongKQ"><xs:sequence><xs:element name="TenTepTraLoi" type="xs:string"/><xs:element name="TrangThai" type="xs:string"/><xs:element name="NgayLayVe" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="TTChung"><xs:sequence><xs:element name="NgayTu" type="xs:string"/><xs:element name="NgayDen" type="xs:string"/><xs:element name="TrangThai" type="xs:string"/></xs:sequence></xs:complexType></xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TrangThaiTepHT">
+    <wsdl:part element="tns:TrangThaiTepHT" name="TrangThaiTepHT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TraKetQuaDinhKy">
+    <wsdl:part element="tns:TraKetQuaDinhKy" name="TraKetQuaDinhKy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTepHoiTin">
+    <wsdl:part element="tns:PHTepHoiTin" name="PHTepHoiTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TrangThaiTepDinhKy">
+    <wsdl:part element="tns:TrangThaiTepDinhKy" name="TrangThaiTepDinhKy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTepVanTin">
+    <wsdl:part element="tns:PHTepVanTin" name="PHTepVanTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="HoiTin">
+    <wsdl:part element="tns:HoiTin" name="HoiTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHVanTinDSPhieu">
+    <wsdl:part element="tns:PHVanTinDSPhieu" name="PHVanTinDSPhieu">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VanTin">
+    <wsdl:part element="tns:VanTin" name="VanTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTrangThaiTepHT">
+    <wsdl:part element="tns:PHTrangThaiTepHT" name="PHTrangThaiTepHT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TepHoiTin">
+    <wsdl:part element="tns:TepHoiTin" name="TepHoiTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTraKetQuaDinhKy">
+    <wsdl:part element="tns:PHTraKetQuaDinhKy" name="PHTraKetQuaDinhKy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TrangThaiPhieuHT">
+    <wsdl:part element="tns:TrangThaiPhieuHT" name="TrangThaiPhieuHT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VanTinDSPhieu">
+    <wsdl:part element="tns:VanTinDSPhieu" name="VanTinDSPhieu">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TepVanTin">
+    <wsdl:part element="tns:TepVanTin" name="TepVanTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHHoiTin">
+    <wsdl:part element="tns:PHHoiTin" name="PHHoiTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHVanTin">
+    <wsdl:part element="tns:PHVanTin" name="PHVanTin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTrangThaiPhieuHT">
+    <wsdl:part element="tns:PHTrangThaiPhieuHT" name="PHTrangThaiPhieuHT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTrangThaiTepDinhKy">
+    <wsdl:part element="tns:PHTrangThaiTepDinhKy" name="PHTrangThaiTepDinhKy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CicQuestionAnswerPort">
+    <wsdl:operation name="TrangThaiTepHT">
+      <wsdl:input message="tns:TrangThaiTepHT" name="TrangThaiTepHT">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTrangThaiTepHT" name="PHTrangThaiTepHT">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraKetQuaDinhKy">
+      <wsdl:input message="tns:TraKetQuaDinhKy" name="TraKetQuaDinhKy">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTraKetQuaDinhKy" name="PHTraKetQuaDinhKy">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepHoiTin">
+      <wsdl:input message="tns:TepHoiTin" name="TepHoiTin">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTepHoiTin" name="PHTepHoiTin">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrangThaiTepDinhKy">
+      <wsdl:input message="tns:TrangThaiTepDinhKy" name="TrangThaiTepDinhKy">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTrangThaiTepDinhKy" name="PHTrangThaiTepDinhKy">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepVanTin">
+      <wsdl:input message="tns:TepVanTin" name="TepVanTin">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTepVanTin" name="PHTepVanTin">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HoiTin">
+      <wsdl:input message="tns:HoiTin" name="HoiTin">
+    </wsdl:input>
+      <wsdl:output message="tns:PHHoiTin" name="PHHoiTin">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VanTinDSPhieu">
+      <wsdl:input message="tns:VanTinDSPhieu" name="VanTinDSPhieu">
+    </wsdl:input>
+      <wsdl:output message="tns:PHVanTinDSPhieu" name="PHVanTinDSPhieu">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VanTin">
+      <wsdl:input message="tns:VanTin" name="VanTin">
+    </wsdl:input>
+      <wsdl:output message="tns:PHVanTin" name="PHVanTin">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrangThaiPhieuHT">
+      <wsdl:input message="tns:TrangThaiPhieuHT" name="TrangThaiPhieuHT">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTrangThaiPhieuHT" name="PHTrangThaiPhieuHT">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CicQuestionAnswerPortSoap11" type="tns:CicQuestionAnswerPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TrangThaiTepHT">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TrangThaiTepHT">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTrangThaiTepHT">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraKetQuaDinhKy">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TraKetQuaDinhKy">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTraKetQuaDinhKy">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepHoiTin">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TepHoiTin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTepHoiTin">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrangThaiTepDinhKy">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TrangThaiTepDinhKy">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTrangThaiTepDinhKy">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TepVanTin">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TepVanTin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTepVanTin">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HoiTin">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="HoiTin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHHoiTin">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VanTinDSPhieu">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="VanTinDSPhieu">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHVanTinDSPhieu">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VanTin">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="VanTin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHVanTin">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrangThaiPhieuHT">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TrangThaiPhieuHT">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTrangThaiPhieuHT">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CicQuestionAnswerPortService">
+    <wsdl:port binding="tns:CicQuestionAnswerPortSoap11" name="CicQuestionAnswerPortSoap11">
+      <soap:address location="http://localhost:8081/web/service/questionAnswer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

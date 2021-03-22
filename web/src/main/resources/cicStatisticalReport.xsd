@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicstatisticalreport" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicstatisticalreport"
+	elementFormDefault="qualified">
+	
+	<!-- BaoCaoThongKe -->
+	<xs:element name="BaoCaoThongKe">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NguoiYeuCau" type="xs:string" />
+				<xs:element name="MaBaoCao" type="xs:string" />
+				<xs:element name="TuNgay" type="xs:string" />
+				<xs:element name="DenNgay" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="PHBaoCaoThongKe">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi" />
+				<xs:element name="DongKQ" type="tns:DongKQ" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- BaoCaoThongKe -->
+	
+	<xs:complexType name="DongKQ">
+		<xs:sequence>
+			<xs:element name="MaBaoCao" type="xs:string" />
+			<xs:element name="TuNgay" type="xs:string" />
+			<xs:element name="DenNgay" type="xs:string" />
+			<xs:element name="NoiDung" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TTPhanHoi">
+		<xs:sequence>
+			<xs:element name="TrangThai" type="xs:string" />
+			<xs:element name="Ma" type="xs:string" />
+			<xs:element name="MoTa" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

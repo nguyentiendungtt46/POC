@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.endpoint.ws.intergration.org.vn/cicqr" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqr" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqr">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqr">
+	
+	<!-- TimKiemKH -->
+	<xs:element name="TimKiemKH">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NguoiYeuCau" type="xs:string"/>
+				<xs:element name="TenKH" type="xs:string"/>
+				<xs:element name="DiaChi" type="xs:string"/>
+				<xs:element name="MaKH" type="xs:string"/>
+				<xs:element name="MaCIC" type="xs:string"/>
+				<xs:element name="LoaiKH" type="xs:string"/>
+				<xs:element name="MSThue" type="xs:string"/>
+				<xs:element name="DKKD" type="xs:string"/>
+				<xs:element name="SoCMT" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="PHTimKiemKH">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TimKiemKHKQ" type="tns:TimKiemKHKQ"/>
+				<xs:element name="TTPhanHoi" type="tns:TTPhanHoi"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- TimKiemKH -->
+	
+	<xs:complexType name="TimKiemKHKQ">
+		<xs:sequence>
+			<xs:element name="TenKH" type="xs:string"/>
+			<xs:element name="DiaChi" type="xs:string"/>
+			<xs:element name="MaCIC" type="xs:string"/>
+			<xs:element name="MaKH" type="xs:string"/>
+			<xs:element name="MaTCTD" type="xs:string"/>
+			<xs:element name="LoaiKH" type="xs:string"/>
+			<xs:element name="MSThue" type="xs:string"/>
+			<xs:element name="SoCMT" type="xs:string"/>
+			<xs:element name="DKKD" type="xs:string"/>
+			<xs:element name="Data" type="xs:string"/>
+			<xs:element name="DSLoi" type="tns:DSLoi"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TTPhanHoi">
+		<xs:sequence>
+			<xs:element name="TrangThai" type="xs:string"/>
+			<xs:element name="Ma" type="xs:string"/>
+			<xs:element name="MoTa" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DSLoi">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Loi" type="tns:Loi"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Loi">
+		<xs:sequence>
+			<xs:element name="MaLoi" type="xs:string"/>
+			<xs:element name="MoTaLoi" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TimKiemKH">
+    <wsdl:part element="tns:TimKiemKH" name="TimKiemKH">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PHTimKiemKH">
+    <wsdl:part element="tns:PHTimKiemKH" name="PHTimKiemKH">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CicSearchPort">
+    <wsdl:operation name="TimKiemKH">
+      <wsdl:input message="tns:TimKiemKH" name="TimKiemKH">
+    </wsdl:input>
+      <wsdl:output message="tns:PHTimKiemKH" name="PHTimKiemKH">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CicSearchPortSoap11" type="tns:CicSearchPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TimKiemKH">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="TimKiemKH">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHTimKiemKH">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CicSearchPortService">
+    <wsdl:port binding="tns:CicSearchPortSoap11" name="CicSearchPortSoap11">
+      <soap:address location="http://localhost:8081/web/service/search"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

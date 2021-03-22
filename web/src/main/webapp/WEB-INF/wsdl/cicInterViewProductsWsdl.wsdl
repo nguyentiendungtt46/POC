@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.endpoint.ws.intergration.org.vn/cicqr" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqr" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqr">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqr">
+	
+	<!-- Hoi tin -->
+	<xs:element name="VanTinChung">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MaSP" type="xs:string"/>
+				<xs:element name="NguoiYeuCau" type="xs:string"/>
+				<xs:element name="DSTHamSo" type="tns:DSTHamSo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="DSTHamSo">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ThamSo" type="tns:ThamSo"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ThamSo">
+		<xs:sequence>
+			<xs:element name="TenTS" type="xs:string"/>
+			<xs:element name="GiaTriTS" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="PHVanTinChung">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TrangThai" type="xs:string"/>
+				<xs:element name="Ma" type="xs:string"/>
+				<xs:element name="MoTa" type="xs:string"/>
+				<xs:element name="Data" type="xs:string"/>
+				<xs:element name="DSThamSoLoi" type="tns:DSThamSoLoi"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DSThamSoLoi">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ThamSoLoi" type="tns:ThamSoLoi"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ThamSoLoi">
+		<xs:sequence>
+			<xs:element name="TenTS" type="xs:string"/>
+			<xs:element name="MoTaLoi" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="PHVanTinChung">
+    <wsdl:part element="tns:PHVanTinChung" name="PHVanTinChung">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VanTinChung">
+    <wsdl:part element="tns:VanTinChung" name="VanTinChung">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CicInterviewProducts">
+    <wsdl:operation name="VanTinChung">
+      <wsdl:input message="tns:VanTinChung" name="VanTinChung">
+    </wsdl:input>
+      <wsdl:output message="tns:PHVanTinChung" name="PHVanTinChung">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CicInterviewProductsSoap11" type="tns:CicInterviewProducts">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="VanTinChung">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="VanTinChung">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PHVanTinChung">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CicInterviewProductsService">
+    <wsdl:port binding="tns:CicInterviewProductsSoap11" name="CicInterviewProductsSoap11">
+      <soap:address location="http://localhost:8081/web/service/cicqr"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

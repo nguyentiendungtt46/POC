@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/TR/xmlschema-1/#no-xsi"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+	updateCheck="false" monitoring="autodetect" dynamicConfig="true">
+
+	<!-- | Please see http://ehcache.sourceforge.net/documentation/configuration.html 
+		for | detailed information on how to configurigure caches in this file + -->
+	<!-- Location of persistent caches on disk -->
+	<diskStore path="java.io.tmpdir/cic" />
+
+	<cache name="getListbyServiceId" maxElementsInMemory="5000"
+		maxElementsOnDisk="6000" eternal="false" overflowToDisk="true"
+		diskSpoolBufferSizeMB="50" timeToIdleSeconds="180"
+		timeToLiveSeconds="1800" memoryStoreEvictionPolicy="LFU"
+		transactionalMode="off" />
+
+<!-- 	<cache name="findRpSumBranchByRpSumId" maxEntriesLocalHeap="20000" eternal="false" -->
+<!-- 		timeToIdleSeconds="1800" timeToLiveSeconds="1800" overflowToDisk="true" -->
+<!-- 		diskPersistent="true" diskExpiryThreadIntervalSeconds="120" -->
+<!-- 		maxEntriesLocalDisk="20000" /> -->
+</ehcache>

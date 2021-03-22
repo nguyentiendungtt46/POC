@@ -1,0 +1,193 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqa"
+	xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqa"
+	xmlns:two="http://www.endpoint.ws.intergration.org.vn/cicqaFile"
+	xmlns:thr="http://www.endpoint.ws.intergration.org.vn/cicqaFix"
+	xmlns:one="http://www.endpoint.ws.intergration.org.vn/cicqaProd"
+	elementFormDefault="qualified"> 
+	<xs:import
+		namespace="http://www.endpoint.ws.intergration.org.vn/cicqaProd"
+		schemaLocation="cicqaProd.xsd" />
+	<xs:import
+		namespace="http://www.endpoint.ws.intergration.org.vn/cicqaFile"
+		schemaLocation="cicqaFile.xsd" />
+	<xs:import
+		namespace="http://www.endpoint.ws.intergration.org.vn/cicqaFix"
+		schemaLocation="cicqaFix.xsd" />
+
+	<!-- START Trang thai tep hoi tin --> 
+	<xs:element name="TrangThaiTepHT">
+		<xs:complexType> 
+			<xs:sequence>
+				<xs:element name="NgayHT" type="xs:string" />
+				<xs:element name="TrangThai" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHTrangThaiTepHT">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />  
+				<xs:element name="DSLoi" type="one:DSLoi" />
+				<xs:element name="DongKQ" type="two:DongKQ" minOccurs="0" 
+					maxOccurs="unbounded" />	 
+			</xs:sequence>
+		</xs:complexType> 
+	</xs:element>
+	<!-- END Trang thai tep hoi tin -->
+
+	<!-- START Trang thai tep dinh ky -->
+	<xs:element name="TrangThaiTepDinhKy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTChung" type="thr:TTChung" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PHTrangThaiTepDinhKy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />  
+				<xs:element name="DSLoi" type="one:DSLoi" />
+				<xs:element name="DongKQ" type="thr:DongKQ" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- END Trang thai tep dinh ky --> 
+	<!-- nvhuy move cicqa --> 
+	<!-- Hoi tin -->
+	<xs:element name="HoiTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="KhachHang" type="one:KhachHang" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHHoiTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />
+				<xs:element name="DaTa" type="xs:string" />
+				<!-- <xs:element name="DSLoi" type="one:DSLoi" /> -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- Hoi tin -->
+	<!-- Van tin theo danh sach ma so phieu -->
+	<xs:element name="VanTinDSPhieu">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DSMaSoPhieu" type="one:DSMaSoPhieu" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHVanTinDSPhieu">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />
+				<xs:element name="DSKhachHangKQ" type="one:DSKhachHangKQ" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- Van tin theo danh sach ma so phieu -->
+	<!-- Van tin lay toan bo cau tra loi trong ngay -->
+	<xs:element name="VanTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TuyChon" type="xs:string" />
+				<xs:element name="NgayHT" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHVanTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />
+				<xs:element name="DSKhachHangKQ" type="one:DSKhachHangKQ" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element> 
+	<!-- Hoi tin theo File -->
+	<xs:element name="TepHoiTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MaSP" type="xs:string" />
+				<xs:element name="TenTep" type="xs:string" />
+				<xs:element name="NoiDungTep" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHTepHoiTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- Hoi tin -->
+	<!-- Van tin theo File -->
+	<xs:element name="TepVanTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTep" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHTepVanTin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />
+				<xs:element name="TepTraLoi" type="one:TepTraLoi" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- Van tin theo File -->
+	<!-- Hoi tra loi tin dinh ky -->
+	<xs:element name="TraKetQuaDinhKy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TenTepTraLoi" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHTraKetQuaDinhKy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />
+				<xs:element name="DSLoi" type="one:DSLoi" />
+				<xs:element name="TepTraLoi" type="one:TepTraLoi" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- Hoi tra loi tin dinh ky -->
+	<!-- trang thai phieu hoi tin -->
+	<xs:element name="TrangThaiPhieuHT">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NgayHT" type="xs:string" />
+				<xs:element name="TrangThai" type="xs:string" />
+				<xs:element name="DSMaSoPhieu" type="one:DSMaSoPhieu" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PHTrangThaiPhieuHT">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TTPhanHoi" type="one:TTPhanHoi" />  
+				<xs:element name="DSLoi" type="one:DSLoi" />
+				<xs:element name="DongKQ" type="two:DongKQ" minOccurs="0" 
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--END- trang thai phieu hoi tin -->
+</xs:schema>

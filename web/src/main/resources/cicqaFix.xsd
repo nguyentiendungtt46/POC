@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqaFix"
+	targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqaFix"
+	elementFormDefault="qualified">
+	<xs:complexType name="DongKQ">
+		<xs:sequence>
+			<xs:element name="TenTepTraLoi" type="xs:string" />
+			<xs:element name="TrangThai" type="xs:string" />
+			<xs:element name="NgayLayVe" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TTChung">
+		<xs:sequence>
+			<xs:element name="NgayTu" type="xs:string" />
+			<xs:element name="NgayDen" type="xs:string" />
+			<xs:element name="TrangThai" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

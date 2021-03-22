@@ -1,0 +1,124 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.endpoint.ws.intergration.org.vn/cicqaProd"
+	targetNamespace="http://www.endpoint.ws.intergration.org.vn/cicqaProd"
+	elementFormDefault="qualified">
+	<xs:complexType name="TTChung">
+		<xs:sequence>
+			<xs:element name="LoaiSP" type="xs:string" />
+			<xs:element name="SLPhieu" type="xs:integer" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DSKhachHang">
+		<xs:sequence>
+			<xs:element name="Dong" type="tns:Dong" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Dong">
+		<xs:sequence>
+			<xs:element name="MaSoPhieu" type="xs:string" />
+			<xs:element name="TenKH" type="xs:string" />
+			<xs:element name="MaKH" type="xs:string" />
+			<xs:element name="MaCIC" type="xs:string" />
+			<xs:element name="DiaChi" type="xs:string" />
+			<xs:element name="MSThue" type="xs:string" />
+			<xs:element name="SoCMT" type="xs:string" />
+			<xs:element name="DKKD" type="xs:string" />
+			<xs:element name="NgonNgu" type="xs:string" />
+			<xs:element name="DienThoai" type="xs:string" />
+			<xs:element name="TenGiamDoc" type="xs:string" />
+			<xs:element name="NamTaiChinh" type="xs:string" />
+			<xs:element name="GhiChu" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="KhachHang">
+		<xs:sequence>
+			<xs:element name="MaSP" type="xs:string" />
+			<xs:element name="TenKH" type="xs:string" />
+			<xs:element name="MaKH" type="xs:string" />
+			<xs:element name="MaCIC" type="xs:string" />
+			<xs:element name="DiaChi" type="xs:string" />
+			<xs:element name="MSThue" type="xs:string" />
+			<xs:element name="SoCMT" type="xs:string" />
+			<xs:element name="DKKD" type="xs:string" />
+			<xs:element name="NgonNgu" type="xs:string" />
+			<xs:element name="DienThoai" type="xs:string" />
+			<xs:element name="TenGiamDoc" type="xs:string" />
+			<xs:element name="NamTaiChinh" type="xs:string" />
+			<xs:element name="GhiChu" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TTPhanHoi">
+		<xs:sequence>
+			<xs:element name="TrangThai" type="xs:string" />
+			<xs:element name="Ma" type="xs:string" />
+			<xs:element name="MoTa" type="xs:string" />
+			<xs:element name="SLThanhCong" type="xs:integer" />
+			<xs:element name="SLThatBai" type="xs:integer" />
+			<xs:element name="SLHoi" type="xs:integer" />
+			<xs:element name="SLTraLoi" type="xs:integer" />
+			<xs:element name="SLLoi" type="xs:integer" />
+			<xs:element name="LoaiSP" type="xs:string" />
+			<xs:element name="CheckSum" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DSKhachHangKQ">
+		<xs:sequence>
+			<xs:element name="DongKQ" type="tns:DongKQ" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DSLoi">
+		<xs:sequence>
+			<xs:element name="Loi" type="tns:Loi" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Loi">
+		<xs:sequence>
+			<xs:element name="MaLoi" type="xs:string" />
+			<xs:element name="MoTaLoi" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DSMaSoPhieu">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="MaSoPhieu" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TepTraLoi">
+		<xs:sequence>
+			<xs:element name="MaSP" type="xs:string" />
+			<xs:element name="TenTepTraLoi" type="xs:string" />
+			<xs:element name="NoiDungTepTraLoi" type="xs:string" />
+			<xs:element name="TenTepLoi" type="xs:string" />
+			<xs:element name="NoiDungTepLoi" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DongKQ">
+		<xs:sequence>
+			<xs:element name="MaSoPhieu" type="xs:string" />
+			<xs:element name="TenKH" type="xs:string" />
+			<xs:element name="MaKH" type="xs:string" />
+			<xs:element name="MaCIC" type="xs:string" />
+			<xs:element name="DiaChi" type="xs:string" />
+			<xs:element name="MSThue" type="xs:string" />
+			<xs:element name="SoCMT" type="xs:string" />
+			<xs:element name="DKKD" type="xs:string" />
+			<xs:element name="NgonNgu" type="xs:string" />
+			<xs:element name="DienThoai" type="xs:string" />
+			<xs:element name="TenGiamDoc" type="xs:string" />
+			<xs:element name="NamTaiChinh" type="xs:string" />
+			<xs:element name="GhiChu" type="xs:string" />
+			<xs:element name="Data" type="xs:string" />
+			<xs:element name="DSLoi" type="tns:DSLoi" />
+			<xs:element name="LoaiSP" type="xs:string" />
+			<xs:element name="NgayHoi" type="xs:string" />
+			<xs:element name="NgayNhanGanNhat" type="xs:string" />
+			<xs:element name="LoaiKH" type="xs:string" />
+			<xs:element name="TrangThai" type="xs:string" />
+			<xs:element name="NgayLayVe" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
